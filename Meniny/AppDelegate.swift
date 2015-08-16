@@ -13,41 +13,79 @@ import ServiceManagement
 public class AppDelegate: NSObject, NSApplicationDelegate {
     
     var statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
-    var button : NSStatusBarButton!
     
     let popover = NSPopover()
+    
+    var timer24hours = NSTimer()
+    var shortTimer = NSTimer()
     
     public func applicationDidFinishLaunching(aNotification: NSNotification) {
         
         var button = statusItem.button
-        button!.title = "Dneska oslavujeee"
         button!.action = Selector("togglePopover:")
         
         popover.contentViewController = ViewController(nibName: "ViewController", bundle: nil)
         
-        let launchDaemon: CFStringRef = "sk.freetech.OSX.Meniny-Helper"
-        
-        if (SMLoginItemSetEnabled(launchDaemon, Boolean(1)) == 0)
+        if (NSUserDefaults.standardUserDefaults().boolForKey("NamesInMenu"))
         {
-            println("asd/")
+            button!.title = "🎁 " + NamesStack().getNameForToday()
+            // Set timer from now to midnight for call change
+            shortTimer = NSTimer.scheduledTimerWithTimeInterval(getDifferentTime(), target: self, selector: "change", userInfo: nil, repeats: false)
+        }
+        else
+        {
+            button!.title = "🎁"
         }
         
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
-        let hour = components.hour
-        let minutes = components.minute
-        let seconds = components.second
-        
-        
-        println(hour, minutes, seconds)
-        
-        var different = ((23 - hour) * 60 * 60) + ((59 - minutes) * 60) + (60 - seconds)
-        NSTimer.scheduledTimerWithTimeInterval(Double(10), target: self, selector: "change", userInfo: nil, repeats: false)
-        
-        println(different)
+       
+        // receive wake notification / system clock notification
+        NSWorkspace.sharedWorkspace().notificationCenter.addObserver(self, selector: "receiveWakeOrChange", name: NSWorkspaceDidWakeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "SystemClockChanged:", name: NSSystemClockDidChangeNotification, object: nil)
     }
     
+    public func change()
+    {
+        statusItem.button?.title = "🎁 " +  NamesStack().getNameForToday()
+        var oneDayInterval = 24 * 60 * 60
+        timer24hours = NSTimer.scheduledTimerWithTimeInterval(Double(oneDayInterval), target: self, selector: "change", userInfo: nil, repeats: false)
+        println("called change")
+        
+    }
+    
+    func receiveWakeOrChange()
+    {
+        shortTimer.invalidate()
+        timer24hours.invalidate()
+        
+        if (NSUserDefaults.standardUserDefaults().boolForKey("NamesInMenu"))
+        {
+            statusItem.button?.title = "🎁 " +  NamesStack().getNameForToday()
+            shortTimer = NSTimer.scheduledTimerWithTimeInterval(getDifferentTime(), target: self, selector: "change", userInfo: nil, repeats: false)
+        }
+        else
+        {
+             statusItem.button!.title = "🎁"
+        }
+        
+    }
+    
+    func SystemClockChanged(notification : NSNotificationCenter)
+    {
+        shortTimer.invalidate()
+        timer24hours.invalidate()
+        
+        if (NSUserDefaults.standardUserDefaults().boolForKey("NamesInMenu"))
+        {
+            statusItem.button?.title = "🎁 " +  NamesStack().getNameForToday()
+            shortTimer = NSTimer.scheduledTimerWithTimeInterval(getDifferentTime(), target: self, selector: "change", userInfo: nil, repeats: false)
+        }
+        else
+        {
+            statusItem.button!.title = "🎁"
+        }
+    }
+
+
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSMinYEdge)
@@ -70,14 +108,21 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
-    public func change()
+    func getDifferentTime() -> Double
     {
-        print("now")
-        //statusItem.button?.title = (statusItem.button!.title as String) + " 1"
-        println("this is 24 h")
-        NSTimer.scheduledTimerWithTimeInterval(50, target: self, selector: "change", userInfo: nil, repeats: false)
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        let seconds = components.second
+        
+        
+        println(hour, minutes, seconds)
+        
+        var different = ((23 - hour) * 60 * 60) + ((59 - minutes) * 60) + (60 - seconds)
+        return Double(different)
     }
-    
     
     
 }

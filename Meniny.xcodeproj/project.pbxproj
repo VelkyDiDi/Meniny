@@ -20,6 +20,8 @@
 		374296701B7F628A00481BB2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3742966E1B7F628A00481BB2 /* ViewController.xib */; };
 		374296721B7F6F0C00481BB2 /* NamesStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374296711B7F6F0C00481BB2 /* NamesStack.swift */; };
 		374296741B7F701300481BB2 /* NamesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374296731B7F701300481BB2 /* NamesData.swift */; };
+		374296761B8069F900481BB2 /* HolidaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374296751B8069F900481BB2 /* HolidaysData.swift */; };
+		374883D21B80B764001A86A7 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374883D11B80B764001A86A7 /* TableViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		3742966E1B7F628A00481BB2 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		374296711B7F6F0C00481BB2 /* NamesStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesStack.swift; sourceTree = "<group>"; };
 		374296731B7F701300481BB2 /* NamesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesData.swift; sourceTree = "<group>"; };
+		374296751B8069F900481BB2 /* HolidaysData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidaysData.swift; sourceTree = "<group>"; };
+		374883D11B80B764001A86A7 /* TableViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +139,10 @@
 				3742962F1B7F61B000481BB2 /* AppDelegate.swift */,
 				3742966D1B7F628A00481BB2 /* ViewController.swift */,
 				3742966E1B7F628A00481BB2 /* ViewController.xib */,
+				374883D11B80B764001A86A7 /* TableViewData.swift */,
 				374296711B7F6F0C00481BB2 /* NamesStack.swift */,
 				374296731B7F701300481BB2 /* NamesData.swift */,
+				374296751B8069F900481BB2 /* HolidaysData.swift */,
 				374296311B7F61B000481BB2 /* Images.xcassets */,
 				374296331B7F61B000481BB2 /* MainMenu.xib */,
 				3742962D1B7F61B000481BB2 /* Supporting Files */,
@@ -369,6 +375,8 @@
 				374296741B7F701300481BB2 /* NamesData.swift in Sources */,
 				3742966F1B7F628A00481BB2 /* ViewController.swift in Sources */,
 				374296301B7F61B000481BB2 /* AppDelegate.swift in Sources */,
+				374883D21B80B764001A86A7 /* TableViewData.swift in Sources */,
+				374296761B8069F900481BB2 /* HolidaysData.swift in Sources */,
 				374296721B7F6F0C00481BB2 /* NamesStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +661,7 @@
 				374296461B7F61B000481BB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		374296471B7F61B000481BB2 /* Build configuration list for PBXNativeTarget "MeninyTests" */ = {
 			isa = XCConfigurationList;
@@ -661,6 +670,7 @@
 				374296491B7F61B000481BB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		374296651B7F61C000481BB2 /* Build configuration list for PBXNativeTarget "Meniny Helper" */ = {
 			isa = XCConfigurationList;
@@ -669,6 +679,7 @@
 				374296671B7F61C000481BB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		374296681B7F61C000481BB2 /* Build configuration list for PBXNativeTarget "Meniny HelperTests" */ = {
 			isa = XCConfigurationList;
@@ -677,6 +688,7 @@
 				3742966A1B7F61C000481BB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
