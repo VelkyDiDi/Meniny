@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="nameInfoVC" customModule="Meniny" customModuleProvider="target">
+            <connections>
+                <outlet property="calendarButton" destination="NiQ-DG-f8l" id="BTc-UQ-DvH"/>
+                <outlet property="calendarImage" destination="FJs-rH-8Hs" id="Caf-4j-SuB"/>
+                <outlet property="calendarTextLabel" destination="qrV-Gy-h2B" id="e7k-sz-kCz"/>
+                <outlet property="nameLabel" destination="Uvm-3W-adT" id="Mdh-5t-rpf"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="-5" width="165" height="182"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uvm-3W-adT">
+                    <rect key="frame" x="-2" y="117" width="169" height="45"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Martin" id="8Ho-Ax-nLB">
+                        <font key="font" size="21" name="HelveticaNeue"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-DG-f8l">
+                    <rect key="frame" x="12" y="20" width="145" height="97"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" state="on" transparent="YES" imageScaling="proportionallyDown" sound="Ping" inset="2" id="FtY-ku-uFO">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addToCalendar:" target="-2" id="ywJ-Rc-hdj"/>
+                    </connections>
+                </button>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJs-rH-8Hs">
+                    <rect key="frame" x="0.0" y="47" width="165" height="62"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="calendar-add" id="Clw-BV-e0W"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrV-Gy-h2B">
+                    <rect key="frame" x="-2" y="20" width="169" height="30"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="pridať do kalendára" id="hng-fJ-pN3">
+                        <font key="font" size="17" name="HelveticaNeue-Thin"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <point key="canvasLocation" x="145.5" y="245"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="calendar-add" width="491.51998901367188" height="491.51998901367188"/>
+        <sound name="Ping"/>
+    </resources>
+</document>

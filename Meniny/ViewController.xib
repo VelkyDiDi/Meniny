@@ -12,6 +12,7 @@
                 <outlet property="columnNames" destination="2Qc-uz-dM7" id="Ocw-aa-svK"/>
                 <outlet property="creatorInfo" destination="01O-A6-3oS" id="Pdp-3K-qx7"/>
                 <outlet property="holiday" destination="yJs-gz-6ao" id="Vdi-js-cPv"/>
+                <outlet property="holidayTitle" destination="TEM-00-MbO" id="id2-tJ-3kh"/>
                 <outlet property="nameForToday" destination="wef-Lq-iix" id="3Hk-cF-B94"/>
                 <outlet property="nameForTommorow" destination="BlG-TJ-B6c" id="T5s-ph-bB9"/>
                 <outlet property="tableOfNames" destination="bXH-W4-EOS" id="rmz-rM-Sbm"/>
@@ -126,7 +127,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TEM-00-MbO">
                     <rect key="frame" x="10" y="145" width="234" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Sviatok" id="FEh-tX-Xrz">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Najbližší sviatok" id="FEh-tX-Xrz">
                         <font key="font" size="19" name="HelveticaNeue-Thin"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -135,13 +136,13 @@
                 <searchField wantsLayer="YES" verticalHuggingPriority="750" id="oQz-v0-rKn">
                     <rect key="frame" x="259" y="318" width="231" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Hľadaj" usesSingleLineMode="YES" bezelStyle="round" id="f35-tg-UgL">
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" placeholderString="Hľadaj" usesSingleLineMode="YES" bezelStyle="round" id="f35-tg-UgL">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </searchFieldCell>
                     <connections>
-                        <binding destination="Rsy-CD-xlg" name="predicate" keyPath="filterPredicate" id="gWU-a3-gpX">
+                        <binding destination="Rsy-CD-xlg" name="predicate" keyPath="filterPredicate" id="dxO-MN-8pI">
                             <dictionary key="options">
                                 <string key="NSDisplayName">Hľadaj</string>
                                 <string key="NSPredicateFormat">key contains $value</string>
@@ -150,57 +151,74 @@
                         </binding>
                     </connections>
                 </searchField>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="ZxM-1u-Xuh">
-                    <rect key="frame" x="259" y="20" width="231" height="284"/>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" hasVerticalScroller="NO" allowsMagnification="YES" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" id="ZxM-1u-Xuh">
+                    <rect key="frame" x="259" y="26" width="231" height="284"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="jQ4-KG-kfz">
                         <rect key="frame" x="0.0" y="0.0" width="231" height="284"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" id="bXH-W4-EOS">
-                                <rect key="frame" x="0.0" y="0.0" width="231" height="284"/>
+                            <tableView appearanceType="vibrantLight" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="24" id="bXH-W4-EOS">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="26"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <tableViewGridLines key="gridStyleMask" dashed="YES"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="159" minWidth="40" maxWidth="1000" id="DdR-bl-JWl">
+                                    <tableColumn identifier="name" editable="NO" width="158" minWidth="40" maxWidth="1000" id="DdR-bl-JWl">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
-                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="2Qc-uz-dM7">
-                                            <font key="font" metaFont="system"/>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" enabled="NO" refusesFirstResponder="YES" alignment="left" identifier="name" title="Text Cell" id="2Qc-uz-dM7">
+                                            <font key="font" size="13" name="HelveticaNeue"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <connections>
-                                            <binding destination="Rsy-CD-xlg" name="value" keyPath="arrangedObjects.key" id="VS7-cW-b1Q"/>
+                                            <binding destination="Rsy-CD-xlg" name="value" keyPath="arrangedObjects.key" id="Awl-he-Blm"/>
                                         </connections>
                                     </tableColumn>
-                                    <tableColumn width="66" minWidth="40" maxWidth="1000" id="KBd-Ln-O7w">
+                                    <tableColumn identifier="date" editable="NO" width="47" minWidth="40" maxWidth="1000" id="KBd-Ln-O7w">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
-                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="TmP-D8-Rg0">
-                                            <font key="font" metaFont="system"/>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" alignment="left" title="Text Cell" id="TmP-D8-Rg0">
+                                            <font key="font" size="12" name="HelveticaNeue"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <connections>
-                                            <binding destination="Rsy-CD-xlg" name="value" keyPath="arrangedObjects.value" id="EE6-lc-4Er"/>
+                                            <binding destination="Rsy-CD-xlg" name="value" keyPath="arrangedObjects.value" id="uJG-4g-Kuh"/>
                                         </connections>
+                                    </tableColumn>
+                                    <tableColumn identifier="plusClick" editable="NO" width="16" minWidth="10" maxWidth="3.4028234663852886e+38" id="6Ga-G8-pDh">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="+">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" alignment="left" identifier="plusClick" tag="5" title="+" placeholderString="+" id="4CU-g3-7ic">
+                                            <font key="font" size="16" name="HelveticaNeue"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <action selector="tableAction:" target="-2" id="YsA-uF-eb2"/>
+                                    <outlet property="delegate" destination="-2" id="P2e-xm-kLM"/>
+                                </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <nil key="backgroundColor"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="rae-d2-XYt">
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
@@ -214,7 +232,7 @@
             </subviews>
             <point key="canvasLocation" x="698.5" y="684"/>
         </customView>
-        <objectController id="9DS-27-hFN"/>
+        <objectController objectClassName="TableViewData.swift" id="9DS-27-hFN"/>
         <dictionaryController objectClassName="_NSControllerKeyValuePair" id="Rsy-CD-xlg">
             <connections>
                 <binding destination="-2" name="contentDictionary" keyPath="self.names" id="BcL-WS-bOE"/>

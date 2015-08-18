@@ -263,6 +263,7 @@ public class NamesData
         "Hana"      : "26.07.",
         "Anita"     : "26.07.",
         "Božena"    : "27.07.",
+        "Gorazd"    : "27.07.",
         "Krištof"   : "28.07.",
         "Marta"     : "29.07.",
         "Libuša"    : "30.07.",

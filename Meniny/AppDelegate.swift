@@ -8,6 +8,7 @@
 
 import Cocoa
 import ServiceManagement
+import EventKit
 
 @NSApplicationMain
 public class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,16 +16,27 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
     
     let popover = NSPopover()
+    let transientMonitor = NSEvent()
     
     var timer24hours = NSTimer()
     var shortTimer = NSTimer()
     
+    lazy var store : EKEventStore = EKEventStore()
+    
     public func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
+        // calendar
+        self.store.requestAccessToEntityType(EKEntityTypeEvent) {
+            (success: Bool, error: NSError!) in
+            //println("Got permission = \(success); error = \(error)")
+        }
+        
         
         var button = statusItem.button
         button!.action = Selector("togglePopover:")
         
         popover.contentViewController = ViewController(nibName: "ViewController", bundle: nil)
+        popover.behavior = NSPopoverBehavior.Transient
         
         if (NSUserDefaults.standardUserDefaults().boolForKey("NamesInMenu"))
         {
@@ -89,6 +101,10 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
     func showPopover(sender: AnyObject?) {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSMinYEdge)
+            popover.behavior = NSPopoverBehavior.Transient
+            
+            
+            
         }
     }
     
@@ -118,11 +134,12 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         let seconds = components.second
         
         
-        println(hour, minutes, seconds)
+        //println(hour, minutes, seconds)
         
         var different = ((23 - hour) * 60 * 60) + ((59 - minutes) * 60) + (60 - seconds)
         return Double(different)
     }
+    
     
     
 }

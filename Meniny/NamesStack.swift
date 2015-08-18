@@ -92,7 +92,7 @@ public class NamesStack {
 
     }
     
-    func getNearestHoliday()->String
+    func getNearestHoliday()->(String, Bool)
     {
         let date_today = NSDate();
         var format_day_label = NSDateFormatter()
@@ -112,7 +112,7 @@ public class NamesStack {
                 
                 if (holidays[myDateFormatted] != nil)
                 {
-                    return myDateFormatted + " " + holidays[myDateFormatted]!
+                    return (myDateFormatted + " " + holidays[myDateFormatted]!, false)
                 }
                 
                 i++
@@ -121,7 +121,7 @@ public class NamesStack {
         }
         else
         {
-            return "🎉 " + holidays[date]!
+            return ("🎉 " + holidays[date]!, true)
         }
         
         

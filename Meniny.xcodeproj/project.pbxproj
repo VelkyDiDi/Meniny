@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373E9EF31B828C140002B787 /* nameInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E9EF11B828C140002B787 /* nameInfoVC.swift */; };
+		373E9EF41B828C140002B787 /* nameInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373E9EF21B828C140002B787 /* nameInfoVC.xib */; };
 		374296301B7F61B000481BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3742962F1B7F61B000481BB2 /* AppDelegate.swift */; };
 		374296321B7F61B000481BB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374296311B7F61B000481BB2 /* Images.xcassets */; };
 		374296351B7F61B000481BB2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 374296331B7F61B000481BB2 /* MainMenu.xib */; };
@@ -55,6 +57,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3709C5C31B8117A900EDD594 /* Meniny.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Meniny.entitlements; sourceTree = "<group>"; };
+		3712D2CB1B81C6EF00C26FB0 /* Meniny Helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Meniny Helper.entitlements"; sourceTree = "<group>"; };
+		373E9EF11B828C140002B787 /* nameInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = nameInfoVC.swift; path = ../nameInfoVC.swift; sourceTree = "<group>"; };
+		373E9EF21B828C140002B787 /* nameInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = nameInfoVC.xib; path = ../nameInfoVC.xib; sourceTree = "<group>"; };
 		3742962A1B7F61B000481BB2 /* Meniny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meniny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3742962E1B7F61B000481BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3742962F1B7F61B000481BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +142,9 @@
 		3742962C1B7F61B000481BB2 /* Meniny */ = {
 			isa = PBXGroup;
 			children = (
+				373E9EF11B828C140002B787 /* nameInfoVC.swift */,
+				373E9EF21B828C140002B787 /* nameInfoVC.xib */,
+				3709C5C31B8117A900EDD594 /* Meniny.entitlements */,
 				3742962F1B7F61B000481BB2 /* AppDelegate.swift */,
 				3742966D1B7F628A00481BB2 /* ViewController.swift */,
 				3742966E1B7F628A00481BB2 /* ViewController.xib */,
@@ -178,6 +187,7 @@
 		3742964F1B7F61C000481BB2 /* Meniny Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3712D2CB1B81C6EF00C26FB0 /* Meniny Helper.entitlements */,
 				374296521B7F61C000481BB2 /* AppDelegate.swift */,
 				374296541B7F61C000481BB2 /* Images.xcassets */,
 				374296561B7F61C000481BB2 /* MainMenu.xib */,
@@ -296,6 +306,12 @@
 				TargetAttributes = {
 					374296291B7F61B000481BB2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 76HNUPLPX8;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					374296391B7F61B000481BB2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -303,6 +319,11 @@
 					};
 					3742964D1B7F61C000481BB2 = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					3742965C1B7F61C000481BB2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -337,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				374296321B7F61B000481BB2 /* Images.xcassets in Resources */,
+				373E9EF41B828C140002B787 /* nameInfoVC.xib in Resources */,
 				374296701B7F628A00481BB2 /* ViewController.xib in Resources */,
 				374296351B7F61B000481BB2 /* MainMenu.xib in Resources */,
 			);
@@ -376,6 +398,7 @@
 				3742966F1B7F628A00481BB2 /* ViewController.swift in Sources */,
 				374296301B7F61B000481BB2 /* AppDelegate.swift in Sources */,
 				374883D21B80B764001A86A7 /* TableViewData.swift in Sources */,
+				373E9EF31B828C140002B787 /* nameInfoVC.swift in Sources */,
 				374296761B8069F900481BB2 /* HolidaysData.swift in Sources */,
 				374296721B7F6F0C00481BB2 /* NamesStack.swift in Sources */,
 			);
@@ -524,6 +547,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Meniny/Meniny.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Meniny/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -535,6 +560,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Meniny/Meniny.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Meniny/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -582,6 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Meniny Helper/Meniny Helper.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -598,6 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Meniny Helper/Meniny Helper.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Meniny Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
