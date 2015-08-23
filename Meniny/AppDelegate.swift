@@ -25,6 +25,15 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
     
     public func applicationDidFinishLaunching(aNotification: NSNotification) {
         
+        // First run - set LoginEnabled and Names in MenuBar as enabled
+        if (!NSUserDefaults.standardUserDefaults().boolForKey("FirstRun"))
+        {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "LoginEnabled")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "NamesInMenu")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstRun")
+            println("this is first run")
+        }
+        
         // calendar
         self.store.requestAccessToEntityType(EKEntityTypeEvent) {
             (success: Bool, error: NSError!) in

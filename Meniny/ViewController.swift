@@ -70,16 +70,6 @@ public class ViewController: NSViewController, NSTableViewDelegate, NSTableViewD
             holidayTitle.stringValue = "Sviatok"
         }
         
-        
-        // First run - set LoginEnabled and Names in MenuBar as enabled
-        if (!NSUserDefaults.standardUserDefaults().boolForKey("FirstRun"))
-        {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "LoginEnabled")
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "NamesInMenu")
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstRun")
-            println("this is first run")
-        }
-        
         checkFieldLaunchApp.state = Int(NSUserDefaults.standardUserDefaults().boolForKey("LoginEnabled"))
         checkFieldNamesInMenu.state = Int(NSUserDefaults.standardUserDefaults().boolForKey("NamesInMenu"))
         

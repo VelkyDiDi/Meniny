@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		373E9EF31B828C140002B787 /* nameInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E9EF11B828C140002B787 /* nameInfoVC.swift */; };
 		373E9EF41B828C140002B787 /* nameInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373E9EF21B828C140002B787 /* nameInfoVC.xib */; };
+		3740142D1B88E7BD002A81D3 /* nameInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373E9EF11B828C140002B787 /* nameInfoVC.swift */; };
+		3740142E1B88E7BD002A81D3 /* nameInfoVC.xib in Sources */ = {isa = PBXBuildFile; fileRef = 373E9EF21B828C140002B787 /* nameInfoVC.xib */; };
 		374296301B7F61B000481BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3742962F1B7F61B000481BB2 /* AppDelegate.swift */; };
 		374296321B7F61B000481BB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374296311B7F61B000481BB2 /* Images.xcassets */; };
 		374296351B7F61B000481BB2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 374296331B7F61B000481BB2 /* MainMenu.xib */; };
@@ -394,11 +395,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3740142D1B88E7BD002A81D3 /* nameInfoVC.swift in Sources */,
+				3740142E1B88E7BD002A81D3 /* nameInfoVC.xib in Sources */,
 				374296741B7F701300481BB2 /* NamesData.swift in Sources */,
 				3742966F1B7F628A00481BB2 /* ViewController.swift in Sources */,
 				374296301B7F61B000481BB2 /* AppDelegate.swift in Sources */,
 				374883D21B80B764001A86A7 /* TableViewData.swift in Sources */,
-				373E9EF31B828C140002B787 /* nameInfoVC.swift in Sources */,
 				374296761B8069F900481BB2 /* HolidaysData.swift in Sources */,
 				374296721B7F6F0C00481BB2 /* NamesStack.swift in Sources */,
 			);
