@@ -33,7 +33,6 @@ public class ViewController: NSViewController, NSTableViewDelegate, NSTableViewD
     let popover = NSPopover()
     
     
-    
     // Calendar
     
     //let eventStore = EKEventStore()
@@ -174,4 +173,10 @@ public class ViewController: NSViewController, NSTableViewDelegate, NSTableViewD
         
     }
    
+    @IBAction func quitApplication(sender: AnyObject)
+    {
+        
+        NSApplication.sharedApplication().terminate(self)
+        
+    }
 }

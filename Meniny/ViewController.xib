@@ -34,17 +34,6 @@
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button id="q6T-HZ-b6g">
-                    <rect key="frame" x="10" y="69" width="234" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Otvoriť po štarte" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1iA-O1-fNm">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="setLaunchApp:" target="-2" id="ex5-XN-Tst"/>
-                    </connections>
-                </button>
                 <button id="E4F-Zo-2ff">
                     <rect key="frame" x="10" y="36" width="234" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -229,6 +218,33 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UA4-3x-jvZ">
+                    <rect key="frame" x="5" y="335" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="close" id="gnJ-y6-Qd5"/>
+                </imageView>
+                <button id="qgn-Fq-waV">
+                    <rect key="frame" x="5" y="335" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" transparent="YES" imageScaling="proportionallyDown" sound="Ping" inset="2" id="LHd-gH-Eio">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="quitApplication:" target="-2" id="KzL-Q4-3By"/>
+                    </connections>
+                </button>
+                <button id="q6T-HZ-b6g">
+                    <rect key="frame" x="10" y="69" width="234" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Otvoriť po štarte" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1iA-O1-fNm">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setLaunchApp:" target="-2" id="ex5-XN-Tst"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="698.5" y="684"/>
         </customView>
@@ -244,4 +260,8 @@
             </connections>
         </arrayController>
     </objects>
+    <resources>
+        <image name="close" width="64" height="64"/>
+        <sound name="Ping"/>
+    </resources>
 </document>
